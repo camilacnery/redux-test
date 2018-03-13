@@ -2,7 +2,7 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { apiMiddleware } from 'redux-api-middleware';
 import nock from 'nock';
-import reducer, { togglesActions, FETCH_TOGGLES_PENDING, FETCH_TOGGLES_SUCCESS } from './counter';
+import reducer, { togglesActions, FETCH_TOGGLES_REQUEST, FETCH_TOGGLES_SUCCESS } from './counter';
 
 require('isomorphic-fetch');
 
@@ -20,7 +20,7 @@ describe('Toggles actions', () => {
 
     const store = mockStore({});
     const expectedActions = [
-      { type: FETCH_TOGGLES_PENDING },
+      { type: FETCH_TOGGLES_REQUEST },
       { type: FETCH_TOGGLES_SUCCESS, payload: { toggle1: true, toggle2: false } },
     ];
 
